@@ -14,7 +14,7 @@
         <!--upper bar contains high score and timer-->
         <div class="nav-bar">
           <a href="#">View high scores</a>
-          <p>Time:0</p>
+          <p id="timer">Time: 100</p>
         </div>
         <!--contains the quiz intro and content-->
         <div class="container-2">
@@ -26,17 +26,17 @@
               limit. Keep in mind that incorrect answers will penalize your
               score/time by ten seconds!
             </p>
-            <button>Start Quiz</button>
+            <button id="start-btn">Start Quiz</button>
           </section>
           <!-- contains contents-->
-          <section class="content">
-            <h1>Question</h1>
-            <button>1.answer</button>
-            <button>2.answer</button>
-            <button>3.answer</button>
-            <button>4.answer</button>
+          <section class="content hidden">
+            <h1 id="Question">Question</h1>
+            <button id="answer-btn">1.answer</button>
+            <button id="answer-btn">2.answer</button>
+            <button id="answer-btn">3.answer</button>
+            <button id="answer-btn">4.answer</button>
           </section>
-          <section class="finish-page">
+          <section class="finish-page hidden">
             <h1>All done!</h1>
             <p>Your final score is: 00</p>
             <div>
@@ -45,7 +45,7 @@
               <button>Submit</button>
             </div>
           </section>
-          <section class="high-scores">
+          <section class="high-scores hidden">
             <h1>High scores</h1>
             <ol>
               <li>XX -- 50</li>

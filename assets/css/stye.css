@@ -71,7 +71,6 @@
 .content {
   display: flex;
   flex-direction: column;
-  display: none;
 }
 .content h1 {
   margin: 20px;
@@ -95,13 +94,13 @@
 }
 
 /*finish page*/
-.finish-page {
-  display: none;
-}
 
 /*high score*/
 .high-scores {
   overflow-y: scroll;
   max-height: 300px;
+}
+
+.hidden {
   display: none;
 }

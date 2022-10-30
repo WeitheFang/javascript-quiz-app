@@ -1,6 +1,6 @@
 :root {
-  --button-color-origin: #ffff;
-  --button-color-after: #ffff;
+  --button-color-origin: rgb(3, 44, 106);
+  --button-color-after: rgb(87, 125, 206);
   --button-word-color: #ffff;
 }
 * {
@@ -39,7 +39,7 @@
 }
 .intro {
   text-align: center;
-  display: none;
+  /*display: none;*/
 }
 .intro h1 {
   margin: 20px;
@@ -57,10 +57,13 @@
   cursor: pointer;
   margin: 20px;
   padding: 20px 30px;
-  background-color: rgb(148, 65, 226);
+  background-color: var(--button-color-origin);
   border-radius: 15%;
   border: none;
   color: var(--button-word-color);
+}
+.intro button:hover {
+  background-color: var(--button-color-after);
 }
 
 /*game start page*/
@@ -75,16 +78,20 @@
   font-weight: bold;
   font-size: 3em;
 }
-.content ul li {
-  list-style: none;
+.content button {
   transition: all 0.3s ease 0s;
   font-size: 1.3em;
   cursor: pointer;
   margin: 20px;
   padding: 20px 30px;
-  background-color: rgb(148, 65, 226);
+  background-color: var(--button-color-origin);
   border: none;
   color: var(--button-word-color);
+  text-align: left;
+}
+
+.content button:hover {
+  background-color: var(--button-color-after);
 }
 
 /*finish page*/
@@ -96,4 +103,5 @@
 .high-scores {
   overflow-y: scroll;
   max-height: 300px;
+  display: none;
 }

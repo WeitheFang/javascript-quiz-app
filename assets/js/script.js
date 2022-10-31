@@ -7,7 +7,8 @@ var highScoresPage = document.querySelector(`.high-scores`);
 var questionElement = document.getElementById(`question`);
 var submitButton = document.getElementById(`submit-btn`);
 var timerEl = document.getElementById(`timer`);
-var timeLeft = 100000;
+var timeLeft = 1000000;
+var questionIndex = 0;
 
 startButton.addEventListener(`click`, startGame);
 answerButton.addEventListener(`click`, selectAnswer);
@@ -18,12 +19,13 @@ function startGame() {
   introPage.classList.add(`hidden`);
   contentPage.classList.remove(`hidden`);
   setTime();
+  showQuestion();
 }
 
-function nextQuestion() {}
-
-function showQuestion(questionList) {
-  questionElement.textContent = questionList.question;
+function showQuestion() {
+  questionElement.textContent = questionList[questionIndex].question;
+  //answerButton.textContent = questionList[questionIndex].answers;
+  questionIndex++;
 }
 
 function selectAnswer() {}

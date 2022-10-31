@@ -2,23 +2,31 @@ var startButton = document.getElementById(`start-btn`);
 var introPage = document.querySelector(`.intro`);
 var contentPage = document.querySelector(`.content`);
 var answerButton = document.getElementById(`answer-btn`);
+var finishPage = document.querySelector(`.finish-page`);
+var highScoresPage = document.querySelector(`.high-scores`);
 var questionElement = document.getElementById(`question`);
+var submitButton = document.getElementById(`submit-btn`);
 var timerEl = document.getElementById(`timer`);
-var timeLeft = 100;
+var timeLeft = 100000;
 
 startButton.addEventListener(`click`, startGame);
+answerButton.addEventListener(`click`, selectAnswer);
 
 function startGame() {
-  console.log("start");
+  //console.log("start");
   startButton.classList.add(`hidden`);
   introPage.classList.add(`hidden`);
   contentPage.classList.remove(`hidden`);
   setTime();
 }
 
-function selectAnswer() {}
+function nextQuestion() {}
 
-function showQuestion() {}
+function showQuestion(questionList) {
+  questionElement.textContent = questionList.question;
+}
+
+function selectAnswer() {}
 
 function setTime() {
   var timeInterval = setInterval(function () {
@@ -28,9 +36,17 @@ function setTime() {
     } else {
       timerEl.textContent = ``;
       clearInterval(timeInterval);
+      contentPage.classList.add(`hidden`);
+      finishPage.classList.remove(`hidden`);
     }
   }, 1000);
 }
+
+function submitName() {}
+
+function storeName() {}
+
+function showName() {}
 
 var questionList = [
   {

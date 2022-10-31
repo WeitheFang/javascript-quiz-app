@@ -30,7 +30,7 @@
           </section>
           <!-- contains contents-->
           <section class="content hidden">
-            <h1 id="Question">Question</h1>
+            <h1 id="question">Question</h1>
             <button id="answer-btn">1.answer</button>
             <button id="answer-btn">2.answer</button>
             <button id="answer-btn">3.answer</button>
@@ -41,18 +41,17 @@
             <p>Your final score is: 00</p>
             <div>
               <label for="">Enter your initial</label>
-              <input type="text" name="" id="" />
-              <button>Submit</button>
+              <input
+                id="input-initial"
+                type="text"
+                placeholder="Enter Initial ..."
+              />
+              <button id="submit-btn">Submit</button>
             </div>
           </section>
           <section class="high-scores hidden">
             <h1>High scores</h1>
-            <ol>
-              <li>XX -- 50</li>
-              <li>XX -- 50</li>
-              <li>XX -- 50</li>
-              <li>XX -- 50</li>
-            </ol>
+            <ul id="high-scores-list"></ul>
             <div>
               <button>Go back</button>
               <button>Clear high scores</button>

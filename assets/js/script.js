@@ -24,7 +24,7 @@ function startGame() {
 
 function showQuestion() {
   questionElement.textContent = questionList[questionIndex].question;
-  //answerButton.textContent = questionList[questionIndex].answers;
+  answerButton.textContent = questionList[questionIndex].answers;
   questionIndex++;
 }
 

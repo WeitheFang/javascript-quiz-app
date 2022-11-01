@@ -1,7 +1,10 @@
 var startButton = document.getElementById(`start-btn`);
 var introPage = document.querySelector(`.intro`);
 var contentPage = document.querySelector(`.content`);
-var answerButton = document.getElementById(`answer-btn`);
+var answerButton1 = document.getElementById(`answer-btn1`);
+var answerButton2 = document.getElementById(`answer-btn2`);
+var answerButton3 = document.getElementById(`answer-btn3`);
+var answerButton4 = document.getElementById(`answer-btn4`);
 var finishPage = document.querySelector(`.finish-page`);
 var highScoresPage = document.querySelector(`.high-scores`);
 var questionElement = document.getElementById(`question`);
@@ -11,7 +14,10 @@ var timeLeft = 1000000;
 var questionIndex = 0;
 
 startButton.addEventListener(`click`, startGame);
-answerButton.addEventListener(`click`, selectAnswer);
+answerButton1.addEventListener(`click`, selectAnswer);
+answerButton2.addEventListener(`click`, selectAnswer);
+answerButton3.addEventListener(`click`, selectAnswer);
+answerButton4.addEventListener(`click`, selectAnswer);
 
 function startGame() {
   //console.log("start");
@@ -24,11 +30,23 @@ function startGame() {
 
 function showQuestion() {
   questionElement.textContent = questionList[questionIndex].question;
-  answerButton.textContent = questionList[questionIndex].answers;
-  questionIndex++;
+  answerButton1.textContent = questionList[questionIndex].answers[0].text;
+  answerButton2.textContent = questionList[questionIndex].answers[1].text;
+  answerButton3.textContent = questionList[questionIndex].answers[2].text;
+  answerButton4.textContent = questionList[questionIndex].answers[3].text;
 }
 
-function selectAnswer() {}
+function selectAnswer(event) {
+  var element = event.target;
+  console.log(element);
+  var correct = questionList[questionIndex].answer.correct;
+
+  // if (correct === true) {
+  //   questionIndex++;
+  // } else {
+  //   questionIndex++;
+  // }
+}
 
 function setTime() {
   var timeInterval = setInterval(function () {

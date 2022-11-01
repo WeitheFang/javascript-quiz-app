@@ -10,8 +10,9 @@ var highScoresPage = document.querySelector(`.high-scores`);
 var questionElement = document.getElementById(`question`);
 var submitButton = document.getElementById(`submit-btn`);
 var timerEl = document.getElementById(`timer`);
-var timeLeft = 1000000;
+var timeLeft = 50;
 var questionIndex = 0;
+var scoreIndex = 0;
 
 startButton.addEventListener(`click`, startGame);
 answerButton1.addEventListener(`click`, selectAnswer);
@@ -58,8 +59,14 @@ function selectAnswer(event) {
 
   var answerSelected = element.getAttribute("data-value");
   console.log(answerSelected);
-  if (answerSelected === "true") {
+  if (answerSelected === "true" && questionIndex < 5) {
     questionIndex++;
+    scoreIndex += timeLeft;
+    console.log(scoreIndex);
+    return showQuestion();
+  } else if (answerSelected === "false" && questionIndex < 5) {
+    timeLeft -= 10;
+  } else {
   }
 }
 
@@ -128,7 +135,7 @@ var questionList = [
         correct: "true",
       },
       { text: `Do mathematics logarithm function`, correct: "false" },
-      { text: `function fir debug`, correct: "false" },
+      { text: `function for debug`, correct: "false" },
       { text: `None of the above`, correct: "false" },
     ],
   },

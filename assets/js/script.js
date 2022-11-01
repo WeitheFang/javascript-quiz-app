@@ -30,11 +30,16 @@ function startGame() {
 }
 
 function showQuestion() {
-  questionElement.textContent = questionList[questionIndex].question;
-  answerButton1.textContent = questionList[questionIndex].answers[0].text;
-  answerButton2.textContent = questionList[questionIndex].answers[1].text;
-  answerButton3.textContent = questionList[questionIndex].answers[2].text;
-  answerButton4.textContent = questionList[questionIndex].answers[3].text;
+  if (questionIndex < 5) {
+    questionElement.textContent = questionList[questionIndex].question;
+    answerButton1.textContent = questionList[questionIndex].answers[0].text;
+    answerButton2.textContent = questionList[questionIndex].answers[1].text;
+    answerButton3.textContent = questionList[questionIndex].answers[2].text;
+    answerButton4.textContent = questionList[questionIndex].answers[3].text;
+  } else {
+    contentPage.classList.add(`hidden`);
+    finishPage.classList.remove(`hidden`);
+  }
 }
 
 function selectAnswer(event) {
@@ -59,14 +64,15 @@ function selectAnswer(event) {
 
   var answerSelected = element.getAttribute("data-value");
   console.log(answerSelected);
-  if (answerSelected === "true" && questionIndex < 5) {
+  if (answerSelected === "true") {
     questionIndex++;
     scoreIndex += timeLeft;
     console.log(scoreIndex);
     return showQuestion();
-  } else if (answerSelected === "false" && questionIndex < 5) {
+  } else if (answerSelected === "false") {
     timeLeft -= 10;
   } else {
+    return;
   }
 }
 

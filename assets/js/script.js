@@ -10,11 +10,15 @@ var highScoresPage = document.querySelector(`.high-scores`);
 var questionElement = document.getElementById(`question`);
 var submitButton = document.getElementById(`submit-btn`);
 var timerEl = document.getElementById(`timer`);
+var highScore = document.getElementById(`high-score`);
+var inputInitial = document.getElementById(`input-initial`);
+var highScoresList = document.getElementById(`high-scores-list`);
 var timeLeft = 50;
 var questionIndex = 0;
 var scoreIndex = 0;
 
 startButton.addEventListener(`click`, startGame);
+submitButton.addEventListener(`click`, submitName);
 answerButton1.addEventListener(`click`, selectAnswer);
 answerButton2.addEventListener(`click`, selectAnswer);
 answerButton3.addEventListener(`click`, selectAnswer);
@@ -37,8 +41,7 @@ function showQuestion() {
     answerButton3.textContent = questionList[questionIndex].answers[2].text;
     answerButton4.textContent = questionList[questionIndex].answers[3].text;
   } else {
-    contentPage.classList.add(`hidden`);
-    finishPage.classList.remove(`hidden`);
+    timeLeft = -1;
   }
 }
 
@@ -69,10 +72,9 @@ function selectAnswer(event) {
     scoreIndex += timeLeft;
     console.log(scoreIndex);
     return showQuestion();
-  } else if (answerSelected === "false") {
-    timeLeft -= 10;
   } else {
-    return;
+    timeLeft -= 10;
+    console.log(scoreIndex);
   }
 }
 
@@ -81,20 +83,42 @@ function setTime() {
     if (timeLeft >= 1) {
       timeLeft--;
       timerEl.textContent = `Time: ` + timeLeft;
-    } else {
-      timerEl.textContent = ``;
+    } else if (timeLeft < 0) {
       clearInterval(timeInterval);
+      timerEl.textContent = ``;
+      highScore.textContent = `Your final score is: ` + scoreIndex;
       contentPage.classList.add(`hidden`);
       finishPage.classList.remove(`hidden`);
+    } else {
+      return;
     }
   }, 1000);
 }
 
-function submitName() {}
+function submitName() {
+  console.log("submit!");
+  var initial = inputInitial.value;
+  var playerInfo = {
+    playerInitial: initial,
+    playerScore: scoreIndex,
+  };
+  if (initial === "") {
+    window.alert("Please enter your initial");
+  } else {
+    localStorage.setItem(`playerInfo`, JSON.stringify(playerInfo));
+    console.log(localStorage);
+    finishPage.classList.add(`hidden`);
+    highScoresPage.classList.remove(`hidden`);
+    showName();
+  }
+}
 
-function storeName() {}
+function showName() {
+  var player = JSON.parse(localStorage.getItem("playerInitial"));
+  var score = JSON.parse(localStorage.getItem("playerScore"));
 
-function showName() {}
+  highScoresList.innerHTML = "";
+}
 
 var questionList = [
   {

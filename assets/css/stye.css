@@ -94,7 +94,9 @@
 }
 
 /*finish page*/
-
+#submit-btn {
+  cursor: pointer;
+}
 /*high score*/
 .high-scores {
   overflow-y: scroll;

@@ -112,12 +112,17 @@ function submitName() {
     showName();
   }
 }
-
 function showName() {
-  var player = JSON.parse(localStorage.getItem("playerInitial"));
-  var score = JSON.parse(localStorage.getItem("playerScore"));
+  var playerInfo = JSON.parse(localStorage.getItem(`playerInfo`));
+  var playerInitials = playerInfo.playerInitial;
+  var playerScores = playerInfo.playerScore;
 
-  highScoresList.innerHTML = "";
+  var li = document.createElement("li");
+  li.textContent =
+    playerInitials + `.....................` + playerScores + ` point`;
+
+  console.log(playerInitials);
+  highScoresList.appendChild(li);
 }
 
 var questionList = [

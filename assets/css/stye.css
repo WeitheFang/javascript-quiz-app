@@ -2,12 +2,13 @@
   --button-color-origin: rgb(3, 44, 106);
   --button-color-after: rgb(87, 125, 206);
   --button-word-color: #ffff;
+  --background-color: rgb(100, 100, 100);
 }
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 /*nav bar*/
@@ -21,6 +22,18 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.2em;
+}
+
+.nav-bar button {
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  background-color: var(--button-color-origin);
+  border-radius: 10%;
+  border: none;
+  color: var(--button-word-color);
+}
+.nav-bar button:hover {
+  background-color: var(--button-color-after);
 }
 .nav-bar a {
   text-decoration: none;
@@ -39,7 +52,11 @@
 }
 .intro {
   text-align: center;
-  /*display: none;*/
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .intro h1 {
   margin: 20px;
@@ -71,11 +88,12 @@
 .content {
   display: flex;
   flex-direction: column;
+  height: 70%;
 }
-.content h1 {
+.content h2 {
   margin: 20px;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2em;
 }
 .content button {
   transition: all 0.3s ease 0s;
@@ -94,13 +112,74 @@
 }
 
 /*finish page*/
+.finish-page {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+.finish-page h2 {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 10px;
+}
+.finish-page p {
+  font-size: 1.3em;
+  padding: 10px;
+}
+.finish-page div {
+  font-size: 1.3em;
+  padding: 10px;
+}
 #submit-btn {
   cursor: pointer;
+  transition: all 0.3s ease 0s;
+  background-color: var(--button-color-origin);
+  border-radius: 15%;
+  border: none;
+  color: var(--button-word-color);
+  padding: 5px;
+}
+
+#submit-btn:hover {
+  background-color: var(--button-color-after);
 }
 /*high score*/
 .high-scores {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
   overflow-y: scroll;
   max-height: 300px;
+}
+
+.high-scores h1 {
+  font-weight: bold;
+  padding: 10px;
+  font-size: 2em;
+}
+
+.high-scores button {
+  transition: all 0.3s ease 0s;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: var(--button-color-origin);
+  border-radius: 15%;
+  border: none;
+  color: var(--button-word-color);
+}
+
+.high-scores button:hover {
+  background-color: var(--button-color-after);
+}
+.high-scores ul {
+  font-size: 1.3em;
+  padding: 10px;
 }
 
 .hidden {

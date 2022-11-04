@@ -13,8 +13,8 @@
       <div class="container-1">
         <!--upper bar contains high score and timer-->
         <div class="nav-bar">
-          <a href="#">View high scores</a>
           <p id="timer">Time: 50</p>
+          <button id="vhs-btn">View high scores</button>
         </div>
         <!--contains the quiz intro and content-->
         <div class="container-2">
@@ -30,14 +30,14 @@
           </section>
           <!-- contains contents-->
           <section class="content hidden">
-            <h1 id="question">Question</h1>
+            <h2 id="question">Question</h2>
             <button id="answer-btn1" data-value="false">1.answer</button>
             <button id="answer-btn2" data-value="false">2.answer</button>
             <button id="answer-btn3" data-value="false">3.answer</button>
             <button id="answer-btn4" data-value="false">4.answer</button>
           </section>
           <section class="finish-page hidden">
-            <h1>All done!</h1>
+            <h2>All done!</h2>
             <p id="high-score">Your final score is: 00</p>
             <div>
               <label>Enter your initial</label>
@@ -53,8 +53,8 @@
             <h1>High scores</h1>
             <ul id="high-scores-list"></ul>
             <div>
-              <button>Go back</button>
-              <button>Clear high scores</button>
+              <button id="restart-btn">Restart</button>
+              <button id="clear-score-btn">Clear high scores</button>
             </div>
           </section>
         </div>

@@ -13,6 +13,11 @@ var timerEl = document.getElementById(`timer`);
 var highScore = document.getElementById(`high-score`);
 var inputInitial = document.getElementById(`input-initial`);
 var highScoresList = document.getElementById(`high-scores-list`);
+var clearScoreButton = document.getElementById(`clear-score-btn`);
+var restartButton = document.getElementById(`restart-btn`);
+var viewHighScoreButton = document.getElementById(`vhs-btn`);
+var clearHighScoreButton = document.getElementById(`clear-score-btn`);
+
 var timeLeft = 50;
 var questionIndex = 0;
 var scoreIndex = 0;
@@ -23,12 +28,16 @@ answerButton1.addEventListener(`click`, selectAnswer);
 answerButton2.addEventListener(`click`, selectAnswer);
 answerButton3.addEventListener(`click`, selectAnswer);
 answerButton4.addEventListener(`click`, selectAnswer);
+restartButton.addEventListener(`click`, restartGame);
+viewHighScoreButton.addEventListener(`click`, viewHighScore);
+clearHighScoreButton.addEventListener(`click`, clearHighScore);
 
 function startGame() {
   //console.log("start");
   startButton.classList.add(`hidden`);
   introPage.classList.add(`hidden`);
   contentPage.classList.remove(`hidden`);
+  viewHighScoreButton.classList.add(`hidden`);
   setTime();
   showQuestion();
 }
@@ -41,7 +50,7 @@ function showQuestion() {
     answerButton3.textContent = questionList[questionIndex].answers[2].text;
     answerButton4.textContent = questionList[questionIndex].answers[3].text;
   } else {
-    timeLeft = -1;
+    timeLeft = 0;
   }
 }
 
@@ -83,7 +92,7 @@ function setTime() {
     if (timeLeft >= 1) {
       timeLeft--;
       timerEl.textContent = `Time: ` + timeLeft;
-    } else if (timeLeft < 0) {
+    } else if (timeLeft <= 0) {
       clearInterval(timeInterval);
       timerEl.textContent = ``;
       highScore.textContent = `Your final score is: ` + scoreIndex;
@@ -112,6 +121,7 @@ function submitName() {
     showName();
   }
 }
+
 function showName() {
   var playerInfo = JSON.parse(localStorage.getItem(`playerInfo`));
   var playerInitials = playerInfo.playerInitial;
@@ -119,11 +129,36 @@ function showName() {
 
   var li = document.createElement("li");
   li.textContent =
-    playerInitials + `.....................` + playerScores + ` point`;
+    playerInitials + `.....................` + playerScores + ` points`;
+  li.setAttribute("style", "color:red; list-style:none");
 
   console.log(playerInitials);
   highScoresList.appendChild(li);
 }
+
+function restartGame(event) {
+  event.preventDefault(event);
+  timeLeft = 50;
+  scoreIndex = 0;
+  questionIndex = 0;
+  timerEl.textContent = `Time: ` + timeLeft;
+  startButton.classList.remove(`hidden`);
+  introPage.classList.remove(`hidden`);
+  highScoresPage.classList.add(`hidden`);
+  viewHighScoreButton.classList.remove(`hidden`);
+}
+
+function viewHighScore() {
+  startButton.classList.add(`hidden`);
+  introPage.classList.add(`hidden`);
+  finishPage.classList.add(`hidden`);
+  contentPage.classList.add(`hidden`);
+  viewHighScoreButton.classList.add(`hidden`);
+  highScoresPage.classList.remove(`hidden`);
+  timerEl.textContent = ``;
+}
+
+function clearHighScore() {}
 
 var questionList = [
   {

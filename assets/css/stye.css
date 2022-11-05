@@ -27,17 +27,14 @@
 .nav-bar button {
   transition: all 0.3s ease 0s;
   cursor: pointer;
+  padding: 5px;
   background-color: var(--button-color-origin);
-  border-radius: 10%;
+  border-radius: 10px;
   border: none;
   color: var(--button-word-color);
 }
 .nav-bar button:hover {
   background-color: var(--button-color-after);
-}
-.nav-bar a {
-  text-decoration: none;
-  color: blueviolet;
 }
 
 /*starting page*/
@@ -75,7 +72,7 @@
   margin: 20px;
   padding: 20px 30px;
   background-color: var(--button-color-origin);
-  border-radius: 15%;
+  border-radius: 20px;
   border: none;
   color: var(--button-word-color);
 }
@@ -105,6 +102,7 @@
   border: none;
   color: var(--button-word-color);
   text-align: left;
+  border-radius: 20px;
 }
 
 .content button:hover {
@@ -169,7 +167,7 @@
   margin: 10px;
   padding: 10px 15px;
   background-color: var(--button-color-origin);
-  border-radius: 15%;
+  border-radius: 20px;
   border: none;
   color: var(--button-word-color);
 }

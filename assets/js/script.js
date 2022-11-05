@@ -158,7 +158,10 @@ function viewHighScore() {
   timerEl.textContent = ``;
 }
 
-function clearHighScore() {}
+function clearHighScore() {
+  localStorage.removeItem(`playerInfo`);
+  location.reload();
+}
 
 var questionList = [
   {
